@@ -6,11 +6,18 @@ body {
     margin-left: 127px;
 }
     .pics img {
-        max-weight: 50px;
+        max-width: 50px;
         max-height: 40px;
     }
 
-.post img {
-    max-weight: 200px;
-    max-height: 150px;
+
+.post {
+    max-width: 800px;
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 800px;
 }
+    .post img {
+        max-width: 200px;
+        max-height: 150px;
+    }
