@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="post">
+    <h1>{{ post.title }}</h1>
+
+    {% for pic in post.pics %}
+      <a data-lightbox="{{ post.date }}" href="{{ url_for('pic', fname=pic) }}"><img src="{{ url_for('pic', fname=pic) }}"></a>
+    {% endfor %}
+
+    {{ post.body | markdown | safe }}
+  </div>
+{% endblock %}
