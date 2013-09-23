@@ -12,9 +12,11 @@ except ImportError:
 from flask import Flask, render_template, abort, send_from_directory
 
 
-app = Flask(__name__)
+PORT = 45061
 POSTS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PICS_DIR = os.path.join(POSTS_DIR, 'pics')
+
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -81,10 +83,9 @@ def load_pics(date):
     for fname in fnames:
         if fname.startswith(date):
             ret.append(fname)
-    print date, ret
     return ret
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=PORT, debug=True)
