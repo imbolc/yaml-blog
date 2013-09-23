@@ -1,2 +1,3 @@
 *.py[co]
 templates/custom
+static/custom

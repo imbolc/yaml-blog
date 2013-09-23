@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='pure-min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='lightbox/css/lightbox.css') }}">
+  {% block head_extra %}{% endblock %}
 </head>
 
 <body>
@@ -17,5 +18,7 @@
 
   <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='lightbox/js/lightbox-2.6.min.js') }}"></script>
+
+  {% block body_extra %}{% endblock %}
 </body>
 </html>
