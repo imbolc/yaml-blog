@@ -2,23 +2,20 @@ body {
     margin: 0 20px;
 }
 
-    .pure-g > div {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
 
-.pics {
+.content {
+    margin-left: 30px;
+}
+
+
+.posts .pics {
     margin-left: 127px;
 }
-    .pics img {
+    .posts .pics img {
         max-width: 50px;
         max-height: 40px;
     }
 
-.content {
-    padding-left: 30px;
-}
 
 .post {
     text-align: justify;
@@ -28,6 +25,7 @@ body {
         max-height: 150px;
     }
 
+
 .sidebar {
-    padding-left: 30px;
+    margin-left: 30px;
 }

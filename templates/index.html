@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-  {% for post in posts %}
-    <h2>
-      {{ post.date }}
-      <a href="{{ url_for('post', date=post['date']) }}">{{ post.title }}</a>
-    </h2>
-    <div class="pics">
-      {% for pic in post.pics %}
-        <a data-lightbox="{{ post.date }}" href="{{ url_for('pic', fname=pic) }}"><img src="{{ url_for('pic', fname=pic) }}"></a>
-      {% endfor %}
-    </div>
-  {% endfor %}
+  <div class="posts">
+    {% for post in posts %}
+      <h2>
+        {{ post.date }}
+        <a href="{{ url_for('post', date=post['date']) }}">{{ post.title }}</a>
+      </h2>
+      <div class="pics">
+        {% for pic in post.pics %}
+          <a data-lightbox="{{ post.date }}" href="{{ url_for('pic', fname=pic) }}"><img src="{{ url_for('pic', fname=pic) }}"></a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
