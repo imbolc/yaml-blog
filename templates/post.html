@@ -9,5 +9,7 @@
     {% endfor %}
 
     {{ post.body | markdown | safe }}
+
+    {% block post_extra %}{% endblock %}
   </div>
 {% endblock %}
