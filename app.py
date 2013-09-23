@@ -20,7 +20,8 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
+@app.route('/tag/<tag>')
+def posts(tag=None):
     dates = [fn.rsplit('.', 1)[0] for fn in os.listdir(POSTS_DIR)]
     dates.extend([fn.split()[0] for fn in os.listdir(PICS_DIR)])
     dates = list(set(dates))
@@ -31,7 +32,10 @@ def index():
         post = load_post(date)
         if not post:
             continue
+        if tag and tag not in post['tags']:
+            continue
         posts.append({k: post[k] for k in ['date', 'title', 'pics']})
+
     return render_template('index.html', posts=posts)
 
 
@@ -51,6 +55,25 @@ def pic(fname):
 @app.template_filter('markdown')
 def markdown_filter(s):
     return markdown_html(s)
+
+
+@app.context_processor
+def inject_tags():
+    return {'load_tags': load_tags}
+
+
+def load_tags():
+    dates = [fn.rsplit('.', 1)[0] for fn in os.listdir(POSTS_DIR)]
+    tags = {}
+    for date in dates:
+        post = load_post(date)
+        if not post:
+            continue
+        for tag in post['tags']:
+            tags[tag] = tags.get(tag, 0) + 1
+    tags = tags.items()
+    tags.sort(key=lambda x: x[0])
+    return tags
 
 
 def load_post(date):
@@ -84,7 +107,6 @@ def load_pics(date):
         if fname.startswith(date):
             ret.append(fname)
     return ret
-
 
 
 if __name__ == "__main__":

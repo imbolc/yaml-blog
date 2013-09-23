@@ -2,6 +2,12 @@ body {
     margin: 0 20px;
 }
 
+    .pure-g > div {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
 .pics {
     margin-left: 127px;
 }
@@ -10,14 +16,18 @@ body {
         max-height: 40px;
     }
 
+.content {
+    padding-left: 30px;
+}
 
 .post {
-    max-width: 800px;
     text-align: justify;
-    margin: 0 auto;
-    max-width: 800px;
 }
     .post img {
         max-width: 200px;
         max-height: 150px;
     }
+
+.sidebar {
+    padding-left: 30px;
+}

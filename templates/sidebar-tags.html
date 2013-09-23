@@ -1,0 +1,6 @@
+<ul>
+{% for tag, weight in load_tags() %}
+  <li><a href="{{ url_for('posts', tag=tag) }}">{{ tag }} <sub>{{ weight }}</sub></a></li>
+{% endfor %}
+</ul>
+
